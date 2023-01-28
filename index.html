@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Charadas 1.0 By Osaptm</title>
+	<link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,600,700,900&display=swap" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/estilos.css">
+	<script src="js/moment.js"></script>
+	<script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+	<script src="js/simplyCountdown.min.js"></script>
+	
+</head>
+<body>
+	
+	<div class="portada" id="portada">
+		<div class="header">
+			<h1 class="logotipo">Charaditas</h1>
+
+			<div class="input-group input-group-sm mb-3">
+				<span class="input-group-text" id="inputGroup-sizing-sm">Segundos</span>
+				<input type="number" class="form-control" id="input-segundos" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+			</div>
+
+			<div>
+				<button id="btn-iniciar" class="btn btn-primary" onclick="iniciarCharada()">Iniciar</button>
+				<button id="btn-reset" class="btn btn-secondary" onclick="resetCharada()">Nuevo Juego</button>
+			</div>
+		</div>
+
+		<div class="palabraCharada">
+			<h1 id="palabraCharada">Charada</h1>
+		</div>
+
+		<div id="cuenta"></div>
+
+		<div class="ultimaCharada">
+			<h3 style="text-decoration: underline;font-weight: bold;">Utimas 5 Charadas</h3>
+			<div id="ultimasCharadas"></div>
+		</div>
+	</div>
+	<script src="js/countdown.js"></script>
+</body>
+</html>
