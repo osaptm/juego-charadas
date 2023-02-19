@@ -15,31 +15,42 @@
 <body>
 	
 	<div class="portada" id="portada">
-		<div class="header">
-			<h1 class="logotipo">Charaditas</h1>
+		<div class="add_palabras" id="add_palabras">
+			<h1 class="logotipo">INICIAMOS</h1>
+			<span class="input-group-text" id="inputGroup-sizing-sm">Ingresar Palabras:</span> 
+			<textarea cols="50" rows="10" class="form-control" id="input-palabras" placeholder="Separadas por ,"></textarea>
+			<button id="btn-add-palabras" class="btn btn-primary" onclick="guardaPalabras()">GUARDAR</button>
+		</div>
 
-			<div class="input-group input-group-sm mb-3">
-				<span class="input-group-text" id="inputGroup-sizing-sm">Segundos</span>
-				<input type="number" class="form-control" id="input-segundos" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+		<div id="juego">
+			<div class="header">
+				<h1 class="logotipo">Charaditas</h1>
+	
+				<div class="input-group input-group-sm mb-3">
+					<span class="input-group-text" id="inputGroup-sizing-sm">Segundos</span>
+					<input type="number" class="form-control" id="input-segundos"  aria-describedby="inputGroup-sizing-sm">
+				</div>
+	
+				<div>
+					<button id="btn-iniciar" class="btn btn-primary" onclick="iniciarCharada()">Iniciar</button>
+					<button id="btn-reset" class="btn btn-secondary" onclick="resetCharada()">NewGame</button>
+					<button id="btn-reset" class="btn btn-danger" onclick="resetPalabras()">ResetWords</button>
+				</div>
 			</div>
-
-			<div>
-				<button id="btn-iniciar" class="btn btn-primary" onclick="iniciarCharada()">Iniciar</button>
-				<button id="btn-reset" class="btn btn-secondary" onclick="resetCharada()">Nuevo Juego</button>
+	
+			<div class="palabraCharada">
+				<h1 id="palabraCharada">Charada</h1>
 			</div>
-		</div>
-
-		<div class="palabraCharada">
-			<h1 id="palabraCharada">Charada</h1>
-		</div>
-
-		<div id="cuenta"></div>
-
-		<div class="ultimaCharada">
-			<h3 style="text-decoration: underline;font-weight: bold;">Utimas 5 Charadas</h3>
-			<div id="ultimasCharadas"></div>
-		</div>
+	
+			<div id="cuenta"></div>
+	
+			<div class="ultimaCharada">
+				<h3 style="text-decoration: underline;font-weight: bold;">Utimas 5 Charadas</h3>
+				<div id="ultimasCharadas"></div>
+			</div>
+		</div>	
 	</div>
+
 	<script src="js/countdown.js"></script>
 </body>
 </html>

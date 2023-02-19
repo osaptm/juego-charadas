@@ -1,4 +1,4 @@
-const sonido = cargarSonido("audio_.mp3");
+const sonido = cargarSonido("_audio.mp3");
 
 function resetCharada(){
 	document.getElementById('btn-iniciar').style.display='inline';
@@ -11,11 +11,31 @@ function resetCharada(){
 }
 
 function palabraRandom(){
-	const arrayPalabras = ['Teddy del Aguila','Habia una vez un pollo','Dibu Martinez','Keiko','Gilberto Pescado','Aler Chivito','Flor Peje','Juanito Alisson','Pedrito Castillo','Shakira'];
+	const arrayFrases = JSON.parse(localStorage.getItem("arrayFrases") || "[]");
+	const arrayPalabras = [...arrayFrases];
 	const positionRandom = Math.floor(Math.random() * (arrayPalabras.length-1));
 	const palabra = arrayPalabras[positionRandom];
 	document.getElementById('palabraCharada').innerHTML=palabra;
 	return palabra;
+}
+
+function guardaPalabras(){
+	const palabras = document.getElementById('input-palabras').value;
+	if(palabras==='' || palabras===0) {alert('Ingresa Datos'); return;}
+	const array = palabras.split(',');
+	let array_final = [];
+	for (let index = 0; index < array.length; index++) {
+		array_final.push(array[index].trim());		
+	}
+	localStorage.setItem("arrayFrases",JSON.stringify(array_final));
+	document.getElementById('juego').style.display = 'block';
+	document.getElementById('add_palabras').style.display = 'none';
+}
+
+function resetPalabras(){
+	localStorage.setItem("arrayFrases",JSON.stringify([]));
+	localStorage.setItem("arrayCharadas",JSON.stringify({}));
+	window.location.reload();
 }
 
 function agragarToStorage(palabra){
@@ -116,6 +136,12 @@ function cargarSonido(fuente) {
 };
 
 document.addEventListener("DOMContentLoaded",()=>{
+	const arrayFrases = JSON.parse(localStorage.getItem("arrayFrases") || "[]");
+	if(arrayFrases.length === 0){
+		document.getElementById('juego').style.display = 'none';
+	}else{
+		document.getElementById('add_palabras').style.display = 'none';
+	}
 	document.getElementById('palabraCharada').innerHTML="";
 	ultmasCharadas();
 })
